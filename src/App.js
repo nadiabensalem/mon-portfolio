@@ -1,13 +1,58 @@
 import React from 'react';
-import { Mail, Phone, Linkedin, Code, Database, Globe, Book, Camera, Heart, Star, Award, GraduationCap, Briefcase } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Code, Database, Globe, Book, Camera, Heart, Star, Award, GraduationCap, Briefcase } from 'lucide-react';
 
 export default function App() {
   const competences = {
-    frontend: ['React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3'],
-    backend: ['Node.js', 'Java (JavaFX)', 'PHP', 'Python', 'API REST'],
-    databases: ['MongoDB', 'MySQL', 'Oracle', 'SQL', 'UML'],
-    tools: ['Jira', 'Agile (Scrum)', 'Git']
+    frontend: ['Angular', 'TypeScript', 'React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'SCSS'],
+    backend: ['Java', 'Spring Boot', 'Spring Security', 'JWT', 'API REST', 'Swagger', 'Node.js', 'PHP', 'Python', 'C'],
+    databases: ['MySQL', 'MongoDB', 'Oracle', 'SQL', 'UML'],
+    tools: ['Microsoft Azure', 'Firebase', 'Git / GitHub', 'Jira', 'Agile (Scrum)', 'Intégration de LLM (API Groq)']
   };
+
+  const projetPhare = {
+    titre: 'EduCenter — Plateforme web de gestion universitaire',
+    contexte: "Projet de fin d'études · Stage chez BeeDigital, Monastir · Février – Juin 2026",
+    points: [
+      'Plateforme multi-rôles avec 5 tableaux de bord dédiés : Super Admin, Admin, Enseignant, Étudiant et Parent.',
+      "Gestion des emplois du temps, des absences et des notes, avec contrôle d'accès par rôle (RBAC).",
+      'Authentification sécurisée par JWT et Spring Security ; API REST testée et documentée avec Swagger.',
+      "Assistant IA d'orientation universitaire basé sur LLaMA 3.3 70B via l'API Groq.",
+      'Architecture 3-tiers (Angular / Spring Boot / MySQL), développement en 2 sprints Scrum.'
+    ],
+    technologies: ['Angular 18', 'TypeScript', 'SCSS', 'Spring Boot', 'Spring Security', 'JWT', 'MySQL', 'Swagger', 'API Groq (LLaMA)'],
+    methodologie: 'Agile (Scrum)'
+  };
+
+  const experiences = [
+    {
+      poste: 'Stagiaire Développeuse Full-Stack (PFE)',
+      entreprise: 'BeeDigital',
+      lieu: 'Monastir, Tunisie',
+      periode: 'Févr. 2026 – Juin 2026',
+      description: 'Conception et développement de la plateforme EduCenter (Angular, Spring Boot, MySQL) en équipe Scrum.'
+    },
+    {
+      poste: 'Responsable administration et opérations',
+      entreprise: 'Sirius Call Center',
+      lieu: 'Tunis, Tunisie',
+      periode: 'Juil. 2021 – Août 2022',
+      description: 'Recrutement et gestion RH, suivi des salaires, gestion et fidélisation de comptes clients, enquêtes de satisfaction.'
+    },
+    {
+      poste: "Enseignante d'éducation physique et sportive",
+      entreprise: 'Écoles Al Ahd Jadid et Abou Tayeb Al Moutanabbi',
+      lieu: 'Tunis, Tunisie',
+      periode: 'Sept. 2017 – Juin 2021',
+      description: 'Préparation et animation de cours, gestion de groupes, suivi et évaluation des élèves.'
+    },
+    {
+      poste: 'Conseillère clientèle',
+      entreprise: 'Neapolis',
+      lieu: 'Tunis, Tunisie',
+      periode: 'Juin 2017 – Sept. 2017',
+      description: 'Analyse des besoins clients, proposition de solutions adaptées et présentation des nouveaux produits.'
+    }
+  ];
 
   const projets = [
     {
@@ -17,8 +62,8 @@ export default function App() {
       methodologie: 'Agile (Scrum)'
     },
     {
-      titre: 'Analyse des Maladies Psychologiques (IA)',
-      description: 'Mini-projet IA utilisant Text Mining pour analyser les données psychologiques du travail.',
+      titre: 'Mini-projet IA : santé mentale au travail',
+      description: "Nettoyage d'un dataset Kaggle puis analyse comparative par genre via Text Mining.",
       technologies: ['Python', 'Pandas', 'NLP'],
       methodologie: 'Data Science'
     },
@@ -45,7 +90,7 @@ export default function App() {
   const formations = [
     {
       diplome: 'Licence en Génie Logiciel et Systèmes d\'Information',
-      periode: 'Depuis septembre 2023',
+      periode: 'Septembre 2023 - Juin 2026',
       etablissement: 'Iteam UNIVERSITY',
       lieu: 'Tunis, Tunisie'
     },
@@ -92,14 +137,14 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Nadia Ben Salem
+              Nedia Ben Ammar
             </div>
-            <div className="flex space-x-6">
-              {['Accueil', 'Compétences', 'Projets', 'Formation', 'Certifications', 'Contact'].map((item) => (
+            <div className="flex space-x-6 overflow-x-auto ml-4">
+              {['Accueil', 'Compétences', 'Projets', 'Expériences', 'Formation', 'Certifications', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-gray-300 hover:text-purple-400 transition-colors text-sm font-medium"
+                  className="text-gray-300 hover:text-purple-400 transition-colors text-sm font-medium whitespace-nowrap"
                 >
                   {item}
                 </button>
@@ -116,26 +161,33 @@ export default function App() {
             <div className="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-purple-400 ring-4 ring-purple-500 ring-opacity-50">
               <img 
                 src="/nad.jpg" 
-                alt="Nadia Ben Salem" 
+                alt="Nedia Ben Ammar" 
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
               <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
-                Disponible
+                Disponible immédiatement
               </span>
             </div>
           </div>
           
           <div>
             <h1 className="text-6xl font-bold text-white mb-4">
-              Nadia Ben Salem
+              Nedia Ben Ammar
             </h1>
             <p className="text-2xl text-purple-300 mb-2">
-              Étudiante L3 Génie Logiciel & SI
+              Développeuse Full-Stack Junior · Angular & Spring Boot
+            </p>
+            <p className="text-lg text-gray-300 mb-2">
+              Diplômée en Génie Logiciel & Systèmes d'Information (2026)
             </p>
             <p className="text-xl text-pink-300 font-semibold">
               🏆 Certifiée Microsoft Azure (AZ-900)
+            </p>
+            <p className="text-gray-300 mt-6 max-w-2xl mx-auto leading-relaxed">
+              Je conçois des applications web de bout en bout, du front-end Angular/React à l'API Spring Boot sécurisée.
+              Forte d'une première carrière en relation client, gestion d'équipe et enseignement, je recherche un poste de développeuse web full-stack en France.
             </p>
           </div>
 
@@ -144,13 +196,17 @@ export default function App() {
               <Mail className="w-5 h-5" />
               <span>Email</span>
             </a>
-            <a href="tel:+21624702699" className="flex items-center space-x-2 bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full transition shadow-lg">
+            <a href="tel:+33622548092" className="flex items-center space-x-2 bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full transition shadow-lg">
               <Phone className="w-5 h-5" />
               <span>Téléphone</span>
             </a>
             <a href="https://www.linkedin.com/in/nadia-ben-salem-ba949138b" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition shadow-lg">
               <Linkedin className="w-5 h-5" />
               <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/nadiabensalem" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-full transition shadow-lg">
+              <Github className="w-5 h-5" />
+              <span>GitHub</span>
             </a>
           </div>
 
@@ -252,10 +308,37 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Briefcase className="w-16 h-16 mx-auto text-pink-400 mb-4" />
-            <h2 className="text-5xl font-bold text-white mb-4">Projets Académiques</h2>
+            <h2 className="text-5xl font-bold text-white mb-4">Projets</h2>
             <p className="text-purple-300 text-lg">Expérience pratique et réalisations</p>
           </div>
-          
+
+          {/* Projet phare : PFE EduCenter */}
+          <div className="mb-12 bg-gradient-to-br from-purple-900 via-slate-900 to-pink-900 rounded-2xl shadow-2xl p-8 md:p-10 border-2 border-pink-500">
+            <span className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-xs font-bold uppercase tracking-wide">
+              Projet de fin d'études
+            </span>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">{projetPhare.titre}</h3>
+            <p className="text-pink-300 font-medium mb-6">{projetPhare.contexte}</p>
+            <ul className="space-y-3 mb-6">
+              {projetPhare.points.map((point) => (
+                <li key={point} className="flex items-start text-gray-200 leading-relaxed">
+                  <span className="text-pink-400 mr-3 mt-1">▸</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {projetPhare.technologies.map((tech) => (
+                <span key={tech} className="px-3 py-1 bg-purple-700 text-purple-100 rounded-full text-sm font-medium">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-semibold">
+              {projetPhare.methodologie}
+            </span>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projets.map((projet, index) => (
               <div key={index} className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-8 border border-purple-500 hover:border-pink-500 transition-all hover:scale-105">
@@ -284,8 +367,39 @@ export default function App() {
         </div>
       </section>
 
+      {/* Expériences */}
+      <section id="expériences" className="py-20 px-4 bg-slate-800 bg-opacity-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Briefcase className="w-16 h-16 mx-auto text-purple-400 mb-4" />
+            <h2 className="text-5xl font-bold text-white mb-4">Expériences Professionnelles</h2>
+            <p className="text-purple-300 text-lg">Parcours professionnel</p>
+          </div>
+
+          <div className="space-y-6 max-w-4xl mx-auto">
+            {experiences.map((exp) => (
+              <div key={exp.poste} className="bg-gradient-to-r from-slate-800 to-purple-900 rounded-2xl shadow-2xl p-8 border border-purple-500">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-1">{exp.poste}</h3>
+                    <p className="text-purple-200 text-lg mb-1">{exp.entreprise}</p>
+                    <p className="text-purple-300 mb-3">📍 {exp.lieu}</p>
+                    <p className="text-gray-300 leading-relaxed">{exp.description}</p>
+                  </div>
+                  <div className="mt-4 md:mt-0 md:ml-6">
+                    <span className="inline-block px-5 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold shadow-lg whitespace-nowrap">
+                      {exp.periode}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Formation */}
-      <section id="formation" className="py-20 px-4 bg-slate-800 bg-opacity-50">
+      <section id="formation" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <GraduationCap className="w-16 h-16 mx-auto text-blue-400 mb-4" />
@@ -321,7 +435,7 @@ export default function App() {
       </section>
 
       {/* Certifications */}
-      <section id="certifications" className="py-20 px-4">
+      <section id="certifications" className="py-20 px-4 bg-slate-800 bg-opacity-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Award className="w-16 h-16 mx-auto text-yellow-400 mb-4" />
@@ -366,7 +480,7 @@ export default function App() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-20 px-4 bg-slate-800 bg-opacity-50">
+      <section id="contact" className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <Mail className="w-16 h-16 mx-auto text-purple-400 mb-4" />
@@ -387,15 +501,15 @@ export default function App() {
               <div className="flex flex-col items-center text-center space-y-3 p-6 bg-blue-800 bg-opacity-50 rounded-xl">
                 <Phone className="w-12 h-12 text-blue-300" />
                 <p className="font-semibold text-white text-lg">Téléphone</p>
-                <a href="tel:+21624702699" className="text-blue-300 hover:text-blue-100 transition">
-                  +216 24 702 699
+                <a href="tel:+33622548092" className="text-blue-300 hover:text-blue-100 transition">
+                  +33 6 22 54 80 92
                 </a>
               </div>
 
               <div className="flex flex-col items-center text-center space-y-3 p-6 bg-pink-800 bg-opacity-50 rounded-xl">
                 <Linkedin className="w-12 h-12 text-pink-300" />
                 <p className="font-semibold text-white text-lg">LinkedIn</p>
-                <a href="https://www.linkedin.com/in/nedia-ben-salem-ba949138b" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-100 transition">
+                <a href="https://www.linkedin.com/in/nadia-ben-salem-ba949138b" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-100 transition">
                   Mon profil
                 </a>
               </div>
@@ -403,7 +517,7 @@ export default function App() {
 
             <div className="mt-8 p-6 bg-gradient-to-r from-purple-700 to-pink-700 rounded-xl text-center">
               <p className="text-white text-xl font-semibold">
-                📍 Basée à <span className="font-bold">Tunis, Tunisie</span>
+                📍 Basée en <span className="font-bold">France</span> · Télétravail ou présentiel · Disponible immédiatement
               </p>
             </div>
           </div>
@@ -413,8 +527,8 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-slate-900 py-8 border-t border-purple-500">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-gray-400">© 2025 Nadia Ben Salem - Tous droits réservés</p>
-          <p className="mt-2 text-purple-400 font-semibold">Étudiante en Génie Logiciel | Microsoft Azure Certified</p>
+          <p className="text-gray-400">© 2026 Nedia Ben Ammar - Tous droits réservés</p>
+          <p className="mt-2 text-purple-400 font-semibold">Développeuse Full-Stack Junior | Microsoft Azure Certified</p>
         </div>
       </footer>
     </div>
